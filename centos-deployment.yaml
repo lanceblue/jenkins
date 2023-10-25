@@ -19,10 +19,17 @@ spec:
       hostNetwork: true
       containers:
       - name: centos
-        image: 192.168.1.119/centos:v1
+        image: 192.168.1.119/unity/centos:v1
         imagePullPolicy: IfNotPresent
         command: ["/bin/sh","-c","sleep 99999999999999999"]
         ports:
         - name: http
           containerPort: 80
+        volumeMounts:
+          - name: centos-volume
+            mountPath: /home/data
       dnsPolicy: default
+      volumes:
+      - name: centos-volume
+        persistentVolumeClaim:
+          claimName: centos-pvc
