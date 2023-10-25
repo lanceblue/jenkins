@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cenots
+  namespace: unity
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: centos
+      release: v1
+  template:
+    metadata:
+      labels:
+        app: centos
+        release: v1
+        env: test
+    spec:
+      hostNetwork: true
+      containers:
+      - name: centos
+        image: 192.168.1.119/centos:v1
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/sh","-c","sleep 99999999999999999"]
+        ports:
+        - name: http
+          containerPort: 80
+      dnsPolicy: default
