@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cenots
+  name: centos
   namespace: unity
 spec:
   replicas: 2
@@ -24,7 +24,7 @@ spec:
         command: ["/bin/sh","-c","sleep 99999999999999999"]
         ports:
         - name: http
-          containerPort: 8970
+          containerPort: 2222
         volumeMounts:
           - name: centos-volume
             mountPath: /home/data
