@@ -28,7 +28,7 @@ spec:
         volumeMounts:
           - name: centos-volume
             mountPath: /home/data
-      dnsPolicy: default
+      dnsPolicy: Default
       volumes:
       - name: centos-volume
         persistentVolumeClaim:
