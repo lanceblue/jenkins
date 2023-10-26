@@ -24,7 +24,7 @@ spec:
         command: ["/bin/sh","-c","sleep 99999999999999999"]
         ports:
         - name: http
-          containerPort: 80
+          containerPort: 8970
         volumeMounts:
           - name: centos-volume
             mountPath: /home/data
